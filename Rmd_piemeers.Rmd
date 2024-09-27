@@ -1,0 +1,93 @@
+---
+title: "Dokumentiņš"
+author: "VJ"
+date: "2024-09-27"
+output: html_document
+---
+
+
+koda apgabals; sākas ar trīs apostrofiem. figūriekavās pirmais arguments programmēšanas valoda;
+
+echo=TRUE norāda, ka viss pārējais uzrakstītais parādīsies izdrukā
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
+
+```
+
+# Nodaļa
+teksts 1
+
+
+teksts 2
+
+
+teksts 3
+teksts 4
+
+**starp divām zvaigznītēm - treknraksts**
+
+*starp vienas - slīpraksts*
+
+## **Otrā līmeņa virsraksts**
+
+* lieta
+
+  * cita lieta (ar Tab taustiņu sākumā maina uzskaitījuma līmeņus)
+
+    - vēl cita lieta (uzskaitījumam var izmantot gan "*" gan "-")
+
+### Trešā līmeņa virsraksts
+
+1. pirmais
+
+1. otrais (pēc noklusējuma markdown skaita līdzi. ja starp uzskaitījumu ir pārrāvums /piem teksts/, tad atsākas uzskaitījums)
+
+kaut kāc teksts
+
+1. cits
+
+1. vēl cits
+
+
+kaut kāds teksts
+
+```{r, results='asis'}
+dati=iris
+knitr::kable(head(dati))
+```
+
+gudrs paskaidrojums
+
+attēlā
+
+zemāk kodā = ja aiz {r,.....} peivieno "Warning un message =FALSE", visi paziņojumi par attēla "kļūdām" pazūd 
+
+ja pievieno "suppressPackageStartupMessages(library(tidyverse))", tad paliek tikai būtiskie, nozīmīgie paziņojumi
+
+pievienojot pie {r,....} fig.width = 10, fig.height = 4 , var mainīt attēla izmērus
+
+pievienojot eval=FALSE komandrinda parādās, bet neizpildās; ja ir eval=FALSE atstāts, tad turpināja darboties arī ar "izlases apjoms..." un tā daļa neparādijās
+
+```{r, fig.width = 10, fig.height = 4, echo=TRUE}
+
+dati2=palmerpenguins::penguins
+suppressPackageStartupMessages(library(tidyverse))
+library(tidyverse)
+ggplot(dati2, aes(flipper_length_mm, bill_length_mm))+
+  geom_point()
+
+```
+
+izlases apjoms pingiem ir `r nrow(dati2)`
+
+`dati`
+
+teksts $\alpha = 0.05$
+
+citā rindā $$ \alpha = 0.05 $$
+
+
+
+
